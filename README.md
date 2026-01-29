@@ -2,6 +2,8 @@
 
 基于 TransNetV2 AI 模型的视频场景智能分割桌面应用，支持批量处理和图形化操作。
 
+**项目地址**: https://github.com/TanJie7/TransVideo
+
 ## ✨ 功能特点
 
 - **批量处理**: 一键处理整个文件夹的视频
@@ -15,50 +17,27 @@
 ## 📋 环境要求
 
 - Python 3.9+
-- FFmpeg (系统级安装)
 - NVIDIA GPU (可选，用于加速 TensorFlow)
 
-## 🚀 安装步骤
+## 🚀 快速开始
 
-### 1. 创建 Conda 环境
+### 1. 克隆项目
 
 ```bash
-# 创建新的 conda 环境
-conda create -n transvideo python=3.10 -y
+git clone https://github.com/TanJie7/TransVideo.git
+cd TransVideo
+```
 
-# 激活环境
+### 2. 创建 Conda 环境
+
+```bash
+conda create -n transvideo python=3.10 -y
 conda activate transvideo
 ```
 
-### 2. 安装 FFmpeg
-
-**Windows (使用 Chocolatey):**
-```bash
-choco install ffmpeg
-```
-
-**Windows (手动安装):**
-1. 从 https://ffmpeg.org/download.html 下载
-2. 解压到如 `C:\ffmpeg`
-3. 添加 `C:\ffmpeg\bin` 到系统 PATH
-
-**macOS:**
-```bash
-brew install ffmpeg
-```
-
-**Linux:**
-```bash
-sudo apt install ffmpeg
-```
-
-### 3. 安装 Python 依赖
+### 3. 安装依赖
 
 ```bash
-# 进入项目目录
-cd TransVideo
-
-# 安装依赖
 pip install -r requirements.txt
 ```
 
@@ -79,32 +58,23 @@ TransVideo/
 │   ├── variables/
 │   └── ...
 ├── main_gui.py
-├── main_window.py
 └── ...
+```
+
+### 5. 运行应用
+
+```bash
+conda activate transvideo
+python main_gui.py
 ```
 
 ## 📖 使用方法
 
-### 启动应用
-
-```bash
-# 确保已激活 conda 环境
-conda activate transvideo
-
-# 运行 GUI
-python main_gui.py
-```
-
-### 操作流程
-
 1. **选择文件夹**: 点击"浏览文件夹"，选择包含视频的目录
 2. **勾选视频**: 在左侧列表中勾选要处理的视频（支持全选/反选）
 3. **开始处理**: 点击"▶ 智能分割"按钮
-4. **查看结果**: 
-   - 点击左侧列表项可预览源视频和已处理的场景
-   - 点击预览卡片可播放对应的分割片段
+4. **查看结果**: 点击预览卡片可播放对应的分割片段
 5. **合并导出**: 点击"📦 合并导出"将所有片段复制到统一文件夹
-6. **查看合并**: 点击"👁 查看合并"浏览合并后的文件
 
 ## 📁 输出结构
 
@@ -113,26 +83,42 @@ python main_gui.py
 └── output/
     ├── 视频1/
     │   ├── 视频1_scene_001.mp4
-    │   ├── 视频1_scene_002.mp4
     │   └── keyframes/
-    │       ├── 视频1_scene_001.jpg
-    │       └── 视频1_scene_002.jpg
-    ├── 视频2/
-    │   └── ...
+    │       └── 视频1_scene_001.jpg
     └── merged/                    # 合并导出后生成
         ├── 001.mp4
         ├── 002.mp4
-        ├── 003.mp4
         └── thumbnails/
             ├── 001.jpg
-            ├── 002.jpg
-            └── 003.jpg
+            └── 002.jpg
+```
+
+## ⚙️ 可选配置
+
+### 安装 FFmpeg（如果系统未安装）
+
+大多数情况下 MoviePy 会自动处理 FFmpeg，如果遇到问题可手动安装：
+
+**Windows:**
+```bash
+choco install ffmpeg
+# 或从 https://ffmpeg.org/download.html 下载
+```
+
+**macOS:**
+```bash
+brew install ffmpeg
+```
+
+**Linux:**
+```bash
+sudo apt install ffmpeg
 ```
 
 ## ⚠️ 常见问题
 
 ### DLL load failed 错误
-如果遇到 DLL 加载错误，请重新创建干净的 conda 环境：
+重新创建干净的 conda 环境：
 ```bash
 conda deactivate
 conda remove -n transvideo --all
@@ -141,19 +127,17 @@ conda activate transvideo
 pip install -r requirements.txt
 ```
 
-### 视频预览黑屏
-确保已正确安装 PySide6 的多媒体组件。如果仍有问题，将使用系统播放器作为回退。
-
 ### 处理速度慢
-- 确保安装了 GPU 版本的 TensorFlow
-- 使用 `pip install tensorflow[and-cuda]` 安装 GPU 支持
+使用 GPU 版本的 TensorFlow：
+```bash
+pip install tensorflow[and-cuda]
+```
 
 ## 📝 技术栈
 
 - **AI 模型**: TransNetV2 (TensorFlow)
 - **视频处理**: MoviePy 2.x + FFmpeg
 - **GUI 框架**: PySide6 (Qt6)
-- **图像处理**: Pillow, NumPy
 
 ## 📄 许可证
 
