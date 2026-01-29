@@ -57,7 +57,7 @@ TransVideo/
 │   ├── saved_model.pb
 │   ├── variables/
 │   └── ...
-├── main_gui.py
+├── main.py
 └── ...
 ```
 
@@ -65,7 +65,7 @@ TransVideo/
 
 ```bash
 conda activate transvideo
-python main_gui.py
+python main.py
 ```
 
 ## 📖 使用方法
