@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Project specific - ignore all contents
+Data/
+arch/
+transnetv2-weights/
+
+# Output folders
+output/
+used/
+merged/
+
+# Logs and temp
+*.log
+*.tmp
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Config (user-specific)
+config.json

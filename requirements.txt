@@ -1,0 +1,21 @@
+# TransVideo 视频智能分割工具 - 依赖列表
+# Install with: pip install -r requirements.txt
+
+# AI/ML
+tensorflow>=2.10.0
+
+# Video Processing
+moviepy>=2.0.0
+ffmpeg-python
+
+# GUI
+PySide6>=6.5.0
+
+# Image Processing
+pillow
+numpy
+
+# Note: FFmpeg must be installed on system
+# Windows: choco install ffmpeg OR download from https://ffmpeg.org/
+# Linux: sudo apt install ffmpeg
+# macOS: brew install ffmpeg
